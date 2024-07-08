@@ -1,0 +1,101 @@
+/* Basic reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  body {
+    font-family: 'Arial', sans-serif;
+    background: #f0f0f0;
+  }
+  
+  /* Navbar styling */
+  .navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    background: linear-gradient(45deg, #ff6b6b, #f0e130);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    position: relative;
+    z-index: 1000;
+  }
+  
+  .logo img {
+    height: 50px;
+    animation: logoAnimation 4s infinite;
+    border-radius:5px;
+  }
+  
+  .nav-links {
+    list-style: none;
+    display: flex;
+  }
+  
+  .nav-links li {
+    margin: 0 15px;
+  }
+  
+  .nav-links a {
+    text-decoration: none;
+    color: #fff;
+    font-size: 18px;
+    transition: color 0.3s ease;
+    position: relative;
+  }
+  
+  .nav-links a::before {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: -2px;
+    left: 0;
+    background-color: #fff;
+    visibility: hidden;
+    transition: all 0.3s ease-in-out;
+  }
+  
+  .nav-links a:hover::before {
+    visibility: visible;
+    width: 100%;
+  }
+  
+  .nav-links a:hover {
+    color: #333;
+  }
+  
+  .profile img {
+    height: 50px;
+    border-radius: 50%;
+    transition: transform 0.3s ease;
+    animation: profileAnimation 2s infinite;
+  }
+  
+  .profile img:hover {
+    transform: scale(1.2);
+  }
+  
+  /* Keyframe animations */
+  @keyframes logoAnimation {
+    0%, 100% {
+      transform: rotate(0deg);
+    }
+    50% {
+      transform: rotate(360deg);
+    }
+  }
+  
+  @keyframes profileAnimation {
+    0%, 100% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(-10px);
+    }
+  }
+  .name{
+    margin:10px;
+    color:white;
+  }

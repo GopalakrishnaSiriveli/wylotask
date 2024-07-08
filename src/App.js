@@ -1,25 +1,28 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from 'react';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import { Provider } from 'react-redux';
+import { store } from './redux/store';
+import PostsDisplay from './components/PostsDisplay';
+import CreatePost from './components/CreatePost';
+import Navbar from './components/Navbar';
 
-function App() {
+
+const App = () => {
+  const [editingPost, setEditingPost] = useState(null);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Provider store={store}>
+      <Router>
+        <Navbar/>
+        <Routes>
+          
+          <Route exact path="/" element={<PostsDisplay setEditingPost={setEditingPost} />} />
+          <Route path="/create" element={<CreatePost editingPost={null} setEditingPost={setEditingPost} />} />
+          <Route path="/edit" element={<CreatePost editingPost={editingPost} setEditingPost={setEditingPost} />} />
+        </Routes>
+      </Router>
+    </Provider>
   );
-}
+};
 
 export default App;
